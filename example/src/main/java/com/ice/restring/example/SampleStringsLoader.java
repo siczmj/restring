@@ -17,7 +17,7 @@ public class SampleStringsLoader implements Restring.StringsLoader {
 
     @Override
     public List<String> getLanguages() {
-        return Arrays.asList("en", "de", "fa");
+        return Arrays.asList("en", "de", "fa", "ru");
     }
 
     @Override
@@ -37,6 +37,11 @@ public class SampleStringsLoader implements Restring.StringsLoader {
             case "fa": {
                 map.put("title", "In sarkhat ast (from restring).");
                 map.put("subtitle", "In matn ast (from restring).");
+                break;
+            }
+            case "ru": {
+                map.put("title", "Это заголовок (из restring).");
+                map.put("subtitle", "Это подзаголовок (из restring).");
                 break;
             }
         }

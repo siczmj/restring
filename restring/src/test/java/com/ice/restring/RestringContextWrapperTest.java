@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ice.restring.application.TestApplication;
 import com.ice.restring.shadow.MyShadowAssetManager;
 
 import org.junit.Before;
@@ -30,7 +31,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(shadows = {MyShadowAssetManager.class})
+@Config(shadows = MyShadowAssetManager.class, application = TestApplication.class)
 public class RestringContextWrapperTest {
     private static final int STR_RES_ID = 0x7f0f0123;
     private static final String STR_KEY = "STR_KEY";
