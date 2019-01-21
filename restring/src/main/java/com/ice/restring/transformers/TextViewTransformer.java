@@ -1,9 +1,11 @@
-package com.ice.restring;
+package com.ice.restring.transformers;
 
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+
+import com.ice.restring.ViewTransformerManager;
 
 /**
  * A transformer which transforms TextView(or any view extends it like Button, EditText, ...):

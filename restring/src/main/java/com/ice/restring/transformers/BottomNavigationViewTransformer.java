@@ -1,4 +1,4 @@
-package com.ice.restring;
+package com.ice.restring.transformers;
 
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.Xml;
 import android.view.View;
+
+import com.ice.restring.ViewTransformerManager;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.ice.restring.application.TestApplication;
+import com.ice.restring.transformers.TextInputLayoutTransformer;
 
 import org.junit.Before;
 import org.junit.Test;

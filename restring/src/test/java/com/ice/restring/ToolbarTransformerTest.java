@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toolbar;
 
+import com.ice.restring.transformers.ToolbarTransformer;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

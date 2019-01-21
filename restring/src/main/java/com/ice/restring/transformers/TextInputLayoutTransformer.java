@@ -1,11 +1,13 @@
-package com.ice.restring;
+package com.ice.restring.transformers;
 
 import android.content.res.Resources;
 import android.support.design.widget.TextInputLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
-class TextInputLayoutTransformer implements ViewTransformerManager.Transformer {
+import com.ice.restring.ViewTransformerManager;
+
+public class TextInputLayoutTransformer implements ViewTransformerManager.Transformer {
 
     private static final String ATTRIBUTE_HINT = "hint";
     private static final String ATTRIBUTE_ANDROID_HINT = "android:hint";

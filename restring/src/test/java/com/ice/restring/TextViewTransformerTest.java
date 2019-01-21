@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.ice.restring.transformers.TextViewTransformer;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

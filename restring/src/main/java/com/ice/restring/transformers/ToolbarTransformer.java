@@ -1,4 +1,4 @@
-package com.ice.restring;
+package com.ice.restring.transformers;
 
 import android.annotation.TargetApi;
 import android.content.res.Resources;
@@ -6,6 +6,8 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toolbar;
+
+import com.ice.restring.ViewTransformerManager;
 
 /**
  * A transformer which transforms Toolbar: it transforms the text set as title.

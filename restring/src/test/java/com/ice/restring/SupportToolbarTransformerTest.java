@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.ice.restring.transformers.SupportToolbarTransformer;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

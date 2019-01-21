@@ -3,6 +3,12 @@ package com.ice.restring;
 import android.content.Context;
 import android.content.ContextWrapper;
 
+import com.ice.restring.transformers.BottomNavigationViewTransformer;
+import com.ice.restring.transformers.SupportToolbarTransformer;
+import com.ice.restring.transformers.TextInputLayoutTransformer;
+import com.ice.restring.transformers.TextViewTransformer;
+import com.ice.restring.transformers.ToolbarTransformer;
+
 import java.util.Map;
 
 /**
