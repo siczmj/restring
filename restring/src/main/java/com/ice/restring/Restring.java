@@ -57,6 +57,18 @@ public class Restring {
     }
 
     /**
+     * Init Restring and wraps context of an activity to provide Restring features in one step.
+     *
+     * @param base   context of an activity.
+     * @param config of the Restring.
+     * @return the Restring wrapped context.
+     */
+    public static ContextWrapper initContext(Context base, RestringConfig config) {
+        init(base, config);
+        return RestringContextWrapper.wrap(base, stringRepository, viewTransformerManager);
+    }
+
+    /**
      * Set strings of a language.
      *
      * @param language   the strings are for.
@@ -82,10 +94,14 @@ public class Restring {
     }
 
     private static void initStringRepository(Context context, RestringConfig config) {
-        if (config.isPersist()) {
-            stringRepository = new SharedPrefStringRepository(context);
+        if (config.stringRepository != null) {
+            stringRepository = config.stringRepository;
         } else {
-            stringRepository = new MemoryStringRepository();
+            if (config.isPersist()) {
+                stringRepository = new SharedPrefStringRepository(context);
+            } else {
+                stringRepository = new MemoryStringRepository();
+            }
         }
 
         if (config.getStringsLoader() != null) {
@@ -94,12 +110,14 @@ public class Restring {
     }
 
     private static void initViewTransformer() {
-        viewTransformerManager = new ViewTransformerManager();
-        viewTransformerManager.registerTransformer(new TextViewTransformer());
-        viewTransformerManager.registerTransformer(new ToolbarTransformer());
-        viewTransformerManager.registerTransformer(new SupportToolbarTransformer());
-        viewTransformerManager.registerTransformer(new BottomNavigationViewTransformer());
-        viewTransformerManager.registerTransformer(new TextInputLayoutTransformer());
+        if (viewTransformerManager == null) {
+            viewTransformerManager = new ViewTransformerManager();
+            viewTransformerManager.registerTransformer(new TextViewTransformer());
+            viewTransformerManager.registerTransformer(new ToolbarTransformer());
+            viewTransformerManager.registerTransformer(new SupportToolbarTransformer());
+            viewTransformerManager.registerTransformer(new BottomNavigationViewTransformer());
+            viewTransformerManager.registerTransformer(new TextInputLayoutTransformer());
+        }
     }
 
 }
