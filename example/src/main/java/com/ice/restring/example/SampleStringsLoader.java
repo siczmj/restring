@@ -1,6 +1,6 @@
 package com.ice.restring.example;
 
-import com.ice.restring.Restring;
+import com.ice.restring.StringsLoader;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.Map;
  * <p>
  * All overridden methods will be called on background thread.
  */
-public class SampleStringsLoader implements Restring.StringsLoader {
+public class SampleStringsLoader implements StringsLoader {
 
     @Override
     public List<String> getLanguages() {

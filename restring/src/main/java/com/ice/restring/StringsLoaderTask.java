@@ -15,10 +15,10 @@ import java.util.Map;
  */
 class StringsLoaderTask extends AsyncTask<Void, Void, Map<String, Map<String, String>>> {
 
-    private Restring.StringsLoader stringsLoader;
+    private StringsLoader stringsLoader;
     private StringRepository stringRepository;
 
-    StringsLoaderTask(Restring.StringsLoader stringsLoader,
+    StringsLoaderTask(StringsLoader stringsLoader,
                       StringRepository stringRepository) {
         this.stringsLoader = stringsLoader;
         this.stringRepository = stringRepository;

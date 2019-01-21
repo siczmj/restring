@@ -6,13 +6,13 @@ package com.ice.restring;
 public class RestringConfig {
 
     private boolean persist;
-    private Restring.StringsLoader stringsLoader;
+    private StringsLoader stringsLoader;
 
     public boolean isPersist() {
         return persist;
     }
 
-    public Restring.StringsLoader getStringsLoader() {
+    public StringsLoader getStringsLoader() {
         return stringsLoader;
     }
 
@@ -21,14 +21,14 @@ public class RestringConfig {
 
     public static class Builder {
         private boolean persist;
-        private Restring.StringsLoader stringsLoader;
+        private StringsLoader stringsLoader;
 
         public Builder persist(boolean persist) {
             this.persist = persist;
             return this;
         }
 
-        public Builder stringsLoader(Restring.StringsLoader loader) {
+        public Builder stringsLoader(StringsLoader loader) {
             this.stringsLoader = loader;
             return this;
         }
