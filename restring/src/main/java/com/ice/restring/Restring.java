@@ -93,6 +93,7 @@ public class Restring {
         viewTransformerManager.registerTransformer(new ToolbarTransformer());
         viewTransformerManager.registerTransformer(new SupportToolbarTransformer());
         viewTransformerManager.registerTransformer(new BottomNavigationViewTransformer());
+        viewTransformerManager.registerTransformer(new TextInputLayoutTransformer());
     }
 
 }

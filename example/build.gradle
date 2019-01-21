@@ -25,5 +25,6 @@ dependencies {
     implementation project(":restring")
 
     implementation deps.supportAppCompat
+    implementation deps.supportDesign
     implementation deps.constraintLayout
 }
