@@ -5,7 +5,7 @@ import android.content.ContextWrapper;
 import android.view.LayoutInflater;
 
 /**
- * Main Restring context wrapper which wraps the context for providing another layout inflater & resources.
+ * Main Restring context wrapper which wraps the context for providing another layout inflater &amp; resources.
  */
 public class RestringContextWrapper extends ContextWrapper {
 

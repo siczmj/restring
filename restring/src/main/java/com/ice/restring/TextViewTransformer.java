@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 /**
  * A transformer which transforms TextView(or any view extends it like Button, EditText, ...):
- * it transforms "text" & "hint" attributes.
+ * it transforms "text" &amp; "hint" attributes.
  */
 public class TextViewTransformer implements ViewTransformerManager.Transformer {
 

@@ -25,7 +25,7 @@ public interface StringRepository {
     void setString(String language, String key, String value);
 
     /**
-     * Get a string for a language & key.
+     * Get a string for a language &amp; key.
      *
      * @param language the language of the string.
      * @param key      the string resource id.
@@ -37,7 +37,7 @@ public interface StringRepository {
      * Get all strings for a specific language.
      *
      * @param language the lanugage of the strings.
-     * @return the map of string key & values. return empty map if there's no.
+     * @return the map of string key &amp; values. return empty map if there's no.
      */
     Map<String, String> getStrings(String language);
 }
