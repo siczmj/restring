@@ -12,13 +12,13 @@ import java.util.Map;
  * <p>
  * it's not ThreadSafe.
  */
-class SharedPrefStringRepository implements StringRepository {
-    private static final String SHARED_PREF_NAME = "Restrings";
+public class SharedPrefStringRepository implements StringRepository {
+    protected static final String SHARED_PREF_NAME = "Restrings";
 
-    private SharedPreferences sharedPreferences;
-    private StringRepository memoryStringRepository = new MemoryStringRepository();
+    protected SharedPreferences sharedPreferences;
+    protected StringRepository memoryStringRepository = new MemoryStringRepository();
 
-    SharedPrefStringRepository(Context context) {
+    protected SharedPrefStringRepository(Context context) {
         initSharedPreferences(context);
         loadStrings();
     }
@@ -48,13 +48,13 @@ class SharedPrefStringRepository implements StringRepository {
         return memoryStringRepository.getStrings(language);
     }
 
-    private void initSharedPreferences(Context context) {
+    protected void initSharedPreferences(Context context) {
         if (sharedPreferences == null) {
             sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         }
     }
 
-    private void loadStrings() {
+    protected void loadStrings() {
         Map<String, ?> strings = sharedPreferences.getAll();
         for (Map.Entry<String, ?> entry : strings.entrySet()) {
             if (!(entry.getValue() instanceof String)) {
@@ -68,14 +68,14 @@ class SharedPrefStringRepository implements StringRepository {
         }
     }
 
-    private void saveStrings(String language, Map<String, String> strings) {
+    protected void saveStrings(String language, Map<String, String> strings) {
         String content = serializeKeyValues(strings);
         sharedPreferences.edit()
                 .putString(language, content)
                 .apply();
     }
 
-    private Map<String, String> deserializeKeyValues(String content) {
+    protected Map<String, String> deserializeKeyValues(String content) {
         Map<String, String> keyValues = new LinkedHashMap<>();
         String[] items = content.split(",");
         for (String item : items) {
@@ -85,7 +85,7 @@ class SharedPrefStringRepository implements StringRepository {
         return keyValues;
     }
 
-    private String serializeKeyValues(Map<String, String> keyValues) {
+    protected String serializeKeyValues(Map<String, String> keyValues) {
         StringBuilder content = new StringBuilder();
         for (Map.Entry<String, String> item : keyValues.entrySet()) {
             content.append(item.getKey())

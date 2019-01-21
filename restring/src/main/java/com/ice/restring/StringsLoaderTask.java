@@ -13,10 +13,10 @@ import java.util.Map;
  * FIRST it retrieves all supported languages,
  * THEN it retrieves all strings(key, value) for each language.
  */
-class StringsLoaderTask extends AsyncTask<Void, Void, Map<String, Map<String, String>>> {
+public class StringsLoaderTask extends AsyncTask<Void, Void, Map<String, Map<String, String>>> {
 
-    private StringsLoader stringsLoader;
-    private StringRepository stringRepository;
+    protected StringsLoader stringsLoader;
+    protected StringRepository stringRepository;
 
     StringsLoaderTask(StringsLoader stringsLoader,
                       StringRepository stringRepository) {

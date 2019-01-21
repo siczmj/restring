@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 /**
  * Main Restring context wrapper which wraps the context for providing another layout inflater & resources.
  */
-class RestringContextWrapper extends ContextWrapper {
+public class RestringContextWrapper extends ContextWrapper {
 
-    private RestringLayoutInflater layoutInflater;
-    private ViewTransformerManager viewTransformerManager;
+    protected RestringLayoutInflater layoutInflater;
+    protected ViewTransformerManager viewTransformerManager;
 
     public static RestringContextWrapper wrap(Context context,
                                               StringRepository stringRepository,
@@ -18,7 +18,7 @@ class RestringContextWrapper extends ContextWrapper {
         return new RestringContextWrapper(context, stringRepository, viewTransformerManager);
     }
 
-    private RestringContextWrapper(Context base,
+    protected RestringContextWrapper(Context base,
                                    StringRepository stringRepository,
                                    ViewTransformerManager viewTransformerManager) {
         super(

@@ -21,13 +21,13 @@ import java.lang.reflect.Method;
  * Transformations can consist of transforming the texts applied on XML layout resources, so that it checks if
  * the string attribute set as a string resource it transforms the text and apply it to the view again.
  */
-class RestringLayoutInflater extends LayoutInflater {
+public class RestringLayoutInflater extends LayoutInflater {
 
-    private boolean privateFactorySet = false;
-    private Field mConstructorArgs = null;
-    private ViewTransformerManager viewTransformerManager;
+    protected boolean privateFactorySet = false;
+    protected Field mConstructorArgs = null;
+    protected ViewTransformerManager viewTransformerManager;
 
-    private static final String[] sClassPrefixList = {
+    protected static final String[] sClassPrefixList = {
             "android.widget.",
             "android.webkit.",
             "android.app."
@@ -38,7 +38,7 @@ class RestringLayoutInflater extends LayoutInflater {
         initFactories();
     }
 
-    RestringLayoutInflater(LayoutInflater original,
+    protected RestringLayoutInflater(LayoutInflater original,
                            Context newContext,
                            ViewTransformerManager viewTransformerManager,
                            final boolean cloned) {
@@ -54,7 +54,7 @@ class RestringLayoutInflater extends LayoutInflater {
         return new RestringLayoutInflater(this, newContext, viewTransformerManager, true);
     }
 
-    private void initFactories() {
+    protected void initFactories() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             if (getFactory2() != null) {
                 setFactory2(getFactory2());
@@ -83,7 +83,7 @@ class RestringLayoutInflater extends LayoutInflater {
         }
     }
 
-    private void setPrivateFactoryInternal() {
+    protected void setPrivateFactoryInternal() {
         if (privateFactorySet) return;
         if (!(getContext() instanceof Factory2)) {
             privateFactorySet = true;
@@ -126,7 +126,7 @@ class RestringLayoutInflater extends LayoutInflater {
         return super.onCreateView(name, attrs);
     }
 
-    private View applyChange(View view, AttributeSet attrs) {
+    protected View applyChange(View view, AttributeSet attrs) {
         return viewTransformerManager.transform(view, attrs);
     }
 
@@ -164,7 +164,7 @@ class RestringLayoutInflater extends LayoutInflater {
         }
     }
 
-    private View createCustomViewInternal(View parent, View view, String name, Context viewContext, AttributeSet attrs) {
+    protected View createCustomViewInternal(View parent, View view, String name, Context viewContext, AttributeSet attrs) {
         // I by no means advise anyone to do this normally, but Google have locked down access to
         // the createView() method, so we never get a callback with attributes at the end of the
         // createViewFromTag chain (which would solve all this unnecessary rubbish).
@@ -197,9 +197,9 @@ class RestringLayoutInflater extends LayoutInflater {
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private class PrivateWrapperFactory2 implements Factory2 {
+    protected class PrivateWrapperFactory2 implements Factory2 {
 
-        private Factory2 factory2;
+        protected Factory2 factory2;
 
         public PrivateWrapperFactory2(Factory2 factory2) {
             this.factory2 = factory2;

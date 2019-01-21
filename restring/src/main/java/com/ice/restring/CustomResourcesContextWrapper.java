@@ -7,9 +7,9 @@ import android.content.res.Resources;
 /**
  * A context wrapper which provide another Resources instead of the original one.
  */
-class CustomResourcesContextWrapper extends ContextWrapper {
+public class CustomResourcesContextWrapper extends ContextWrapper {
 
-    private Resources resources;
+    protected Resources resources;
 
     public CustomResourcesContextWrapper(Context base, Resources resources) {
         super(base);

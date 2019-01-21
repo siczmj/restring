@@ -10,10 +10,10 @@ import android.widget.Toolbar;
 /**
  * A transformer which transforms Toolbar: it transforms the text set as title.
  */
-class ToolbarTransformer implements ViewTransformerManager.Transformer {
+public class ToolbarTransformer implements ViewTransformerManager.Transformer {
 
-    private static final String ATTRIBUTE_TITLE = "title";
-    private static final String ATTRIBUTE_ANDROID_TITLE = "android:title";
+    protected static final String ATTRIBUTE_TITLE = "title";
+    protected static final String ATTRIBUTE_ANDROID_TITLE = "android:title";
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -46,7 +46,7 @@ class ToolbarTransformer implements ViewTransformerManager.Transformer {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void setTitleForView(View view, String text) {
+    protected void setTitleForView(View view, String text) {
         ((Toolbar) view).setTitle(text);
     }
 }

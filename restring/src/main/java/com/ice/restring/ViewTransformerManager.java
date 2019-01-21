@@ -11,16 +11,16 @@ import java.util.List;
  * Manages all view transformers as a central point for layout inflater.
  * Layout inflater will ask this manager to transform the inflating views.
  */
-class ViewTransformerManager {
+public class ViewTransformerManager {
 
-    private List<Pair<Class<? extends View>, Transformer>> transformers = new ArrayList<>();
+    protected List<Pair<Class<? extends View>, Transformer>> transformers = new ArrayList<>();
 
     /**
      * Register a new view transformer to be applied on newly inflating views.
      *
      * @param transformer to be added to transformers list.
      */
-    void registerTransformer(Transformer transformer) {
+    protected void registerTransformer(Transformer transformer) {
         transformers.add(new Pair<>(transformer.getViewType(), transformer));
     }
 
@@ -33,7 +33,7 @@ class ViewTransformerManager {
      * @param attrs attributes of the view.
      * @return the transformed view.
      */
-    View transform(View view, AttributeSet attrs) {
+    protected View transform(View view, AttributeSet attrs) {
         if (view == null) {
             return null;
         }
@@ -55,7 +55,7 @@ class ViewTransformerManager {
     /**
      * A view transformer skeleton.
      */
-    interface Transformer {
+    public interface Transformer {
         /**
          * The type of view this transformer is for.
          *

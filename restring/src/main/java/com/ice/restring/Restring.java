@@ -9,7 +9,7 @@ import java.util.Map;
  * Entry point for Restring. it will be used for initializing Restring components, setting new strings,
  * wrapping activity context.
  */
-public abstract class Restring {
+public class Restring {
 
     private static boolean isInitialized = false;
     private static StringRepository stringRepository;

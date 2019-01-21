@@ -10,11 +10,11 @@ import android.text.Html;
  * For getting strings and texts, it checks the strings repository first and if there's a new string
  * that will be returned, otherwise it will fallback to the original resource strings.
  */
-class RestringResources extends Resources {
+public class RestringResources extends Resources {
 
     private final StringRepository stringRepository;
 
-    RestringResources(@NonNull final Resources res,
+    protected RestringResources(@NonNull final Resources res,
                       @NonNull final StringRepository stringRepository) {
         super(res.getAssets(), res.getDisplayMetrics(), res.getConfiguration());
         this.stringRepository = stringRepository;
@@ -59,7 +59,7 @@ class RestringResources extends Resources {
         return super.getText(id, def);
     }
 
-    private String getStringFromRepository(int id) {
+    protected String getStringFromRepository(int id) {
         try {
             String stringKey = getResourceEntryName(id);
             return stringRepository.getString(RestringUtil.getCurrentLanguage(), stringKey);
@@ -68,7 +68,7 @@ class RestringResources extends Resources {
         }
     }
 
-    private CharSequence fromHtml(String source) {
+    protected CharSequence fromHtml(String source) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             //noinspection deprecation
             return Html.fromHtml(source);

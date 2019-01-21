@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Repository of strings.
  */
-interface StringRepository {
+public interface StringRepository {
 
     /**
      * Set strings(key, value) for a specific language.

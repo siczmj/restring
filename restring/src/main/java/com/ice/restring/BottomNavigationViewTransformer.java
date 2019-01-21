@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * A transformer which transforms BottomNavigationView: it transforms the texts coming from the menu.
  */
-class BottomNavigationViewTransformer implements ViewTransformerManager.Transformer {
+public class BottomNavigationViewTransformer implements ViewTransformerManager.Transformer {
 
     private static final String ATTRIBUTE_MENU = "menu";
     private static final String ATTRIBUTE_APP_MENU = "app:menu";
@@ -77,7 +77,7 @@ class BottomNavigationViewTransformer implements ViewTransformerManager.Transfor
         return view;
     }
 
-    private Map<Integer, MenuItemStrings> getMenuItemsStrings(Resources resources, int resId) {
+    protected Map<Integer, MenuItemStrings> getMenuItemsStrings(Resources resources, int resId) {
         XmlResourceParser parser = resources.getLayout(resId);
         AttributeSet attrs = Xml.asAttributeSet(parser);
         try {
@@ -88,7 +88,7 @@ class BottomNavigationViewTransformer implements ViewTransformerManager.Transfor
         }
     }
 
-    private Map<Integer, MenuItemStrings> parseMenu(XmlPullParser parser, AttributeSet attrs)
+    protected Map<Integer, MenuItemStrings> parseMenu(XmlPullParser parser, AttributeSet attrs)
             throws XmlPullParserException, IOException {
 
         Map<Integer, MenuItemStrings> menuItems = new HashMap<>();
@@ -144,7 +144,7 @@ class BottomNavigationViewTransformer implements ViewTransformerManager.Transfor
         return menuItems;
     }
 
-    private Pair<Integer, MenuItemStrings> parseMenuItem(AttributeSet attrs) {
+    protected Pair<Integer, MenuItemStrings> parseMenuItem(AttributeSet attrs) {
         int menuId = 0;
         MenuItemStrings menuItemStrings = null;
         int attributeCount = attrs.getAttributeCount();
@@ -182,7 +182,7 @@ class BottomNavigationViewTransformer implements ViewTransformerManager.Transfor
                 : null;
     }
 
-    private static class MenuItemStrings {
+    protected static class MenuItemStrings {
         public int title;
         public int titleCondensed;
     }

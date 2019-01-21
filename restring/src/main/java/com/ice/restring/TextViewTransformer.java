@@ -9,12 +9,12 @@ import android.widget.TextView;
  * A transformer which transforms TextView(or any view extends it like Button, EditText, ...):
  * it transforms "text" & "hint" attributes.
  */
-class TextViewTransformer implements ViewTransformerManager.Transformer {
+public class TextViewTransformer implements ViewTransformerManager.Transformer {
 
-    private static final String ATTRIBUTE_TEXT = "text";
-    private static final String ATTRIBUTE_ANDROID_TEXT = "android:text";
-    private static final String ATTRIBUTE_HINT = "hint";
-    private static final String ATTRIBUTE_ANDROID_HINT = "android:hint";
+    protected static final String ATTRIBUTE_TEXT = "text";
+    protected static final String ATTRIBUTE_ANDROID_TEXT = "android:text";
+    protected static final String ATTRIBUTE_HINT = "hint";
+    protected static final String ATTRIBUTE_ANDROID_HINT = "android:hint";
 
     @Override
     public Class<? extends View> getViewType() {
@@ -52,11 +52,11 @@ class TextViewTransformer implements ViewTransformerManager.Transformer {
         return view;
     }
 
-    private void setTextForView(View view, String text) {
+    protected void setTextForView(View view, String text) {
         ((TextView) view).setText(text);
     }
 
-    private void setHintForView(View view, String text) {
+    protected void setHintForView(View view, String text) {
         ((TextView) view).setHint(text);
     }
 }

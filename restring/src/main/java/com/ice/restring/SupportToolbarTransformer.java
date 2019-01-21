@@ -8,10 +8,10 @@ import android.view.View;
 /**
  * A transformer which transforms Toolbar(from support library): it transforms the text set as title.
  */
-class SupportToolbarTransformer implements ViewTransformerManager.Transformer {
+public class SupportToolbarTransformer implements ViewTransformerManager.Transformer {
 
-    private static final String ATTRIBUTE_TITLE = "title";
-    private static final String ATTRIBUTE_APP_TITLE = "app:title";
+    protected static final String ATTRIBUTE_TITLE = "title";
+    protected static final String ATTRIBUTE_APP_TITLE = "app:title";
 
     @Override
     public Class<? extends View> getViewType() {
@@ -41,7 +41,7 @@ class SupportToolbarTransformer implements ViewTransformerManager.Transformer {
         return view;
     }
 
-    private void setTitleForView(View view, String text) {
+    protected void setTitleForView(View view, String text) {
         ((Toolbar) view).setTitle(text);
     }
 }

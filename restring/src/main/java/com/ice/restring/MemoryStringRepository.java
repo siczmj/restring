@@ -8,9 +8,9 @@ import java.util.Map;
  * <p>
  * it's not ThreadSafe.
  */
-class MemoryStringRepository implements StringRepository {
+public class MemoryStringRepository implements StringRepository {
 
-    private Map<String, Map<String, String>> strings = new LinkedHashMap<>();
+    protected Map<String, Map<String, String>> strings = new LinkedHashMap<>();
 
     @Override
     public void setStrings(String language, Map<String, String> newStrings) {
