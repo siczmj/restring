@@ -23,15 +23,19 @@ allprojects {
 implementation 'com.github.siczmj:restring:1.0.1'
 ```
 
-### 2. One step initialize and inject into Context
+### 2. One step initialize and inject into Context in your base Acitivity
 ```java
-Restring.init(context, new RestringConfig.Builder()
-     .persist(true)
-     .stringsLoader(new SampleStringsLoader())
-     .stringRepository(new SampleStringRepository())
-     .build());
+@Override
+protected void attachBaseContext(Context newBase) {
+    super.attachBaseContext(Restring.initContext(newBase, new RestringConfig.Builder()
+                                 .persist(true)
+                                 .stringsLoader(new SampleStringsLoader())
+                                 .stringRepository(new SampleStringRepository())
+                                 .build()));
+}
 ```
 
+The rest parts go the same way.
 
 ## Restring 1.0 - original
 An easy way to replace bundled Strings dynamically, or provide new translations in Android
